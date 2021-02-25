@@ -1,0 +1,118 @@
+// @import '~antd/dist/antd.css';
+.hotPagesContainer {
+  padding: 40rem 130rem;
+  h1 {
+    position: relative;
+    text-align: center;
+    font-size: 32rem;
+    padding-bottom: 10rem;
+    font-weight: 500;
+  }
+  h1::after {
+    position: absolute;
+    width: 50rem;
+    height: 2rem;
+    content: "";
+    left: 50%;
+    margin-left: -25rem;
+    bottom: -4rem;
+    background: #00c2ff;
+  }
+  .titleDesc {
+    color: #888;
+    font-size: 14rem;
+    text-align: center;
+    margin-bottom: 40rem;
+  }
+  .contents {
+    display: flex;
+
+    .contentItem {
+      margin: 0 10rem;
+      flex: 1;
+      overflow: hidden;
+
+      .imgContainer{
+        position: relative;
+        width: 100%;
+        // height: auto;
+        height: 244rem;
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+
+        .imgMask {
+          position: absolute;
+          top: -100%;
+          width: 100%;
+          height: 100%;
+          // background-color: transparent;
+          background-color: rgba(255,255,255,.51);
+          transition: top 0.4s;
+          display: flex;
+          justify-content: center;          
+          align-items: center;
+        }
+
+        img {
+          pointer-events: none;
+        }
+      }
+
+      .imgContainer:hover {
+        transform: scale(1.1);
+      }
+      .imgContainer:hover .imgMask {
+        top: 0rem;
+      }
+
+      .itemInfo {
+        position: relative;
+        height: 220rem;
+        padding: 30rem 15rem;
+        background-color: #FAF9F9;
+
+        .itemName {
+          color: #333;
+          font-size: 16rem;
+          font-weight: 400;
+        }
+        .itemDate {
+          color: #bbb;
+          font-size: 14rem;
+          font-family: "Helvetica Neue";
+        }
+        p {
+          color: #999;
+          font-size: 16rem;
+          overflow:hidden; 
+          text-overflow:ellipsis;
+          display:-webkit-box; 
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2; 
+        }
+        .readMore {
+          position: absolute;
+          bottom: 25rem;
+          color: #29b6f6;
+          font-size: 16rem;
+        }
+        .readMore:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .hotPagesContainer {
+    padding: 40rem 40rem;
+
+    .contents {
+      flex-direction: column;
+      .contentItem {
+        margin: 25rem 10rem;
+      }
+    }
+  }
+}

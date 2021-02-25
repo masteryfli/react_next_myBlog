@@ -1,0 +1,36 @@
+.aboutLinkContainer {
+  position: relative;
+  height: 270rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  background-image: url(https://yssimage.oss-cn-hangzhou.aliyuncs.com/22.jpg);
+  // background-image: url(https://yssimage.oss-cn-hangzhou.aliyuncs.com/11.jpg);
+  background-position: center;
+  background-attachment: fixed; //当页面的其余部分滚动时，背景图像不会移动。
+  background-repeat: no-repeat;
+  background-size:100% 100%; //否则横向拉伸
+  div {
+    font-size: 14rem;
+    width: 200rem;
+    height: 50rem;
+    text-align: center;
+    line-height: 50rem;
+    border: 1rem solid #fff;
+    color: #fff;
+    margin: 0 10rem;
+    z-index: 1;
+  }
+}
+
+.aboutLinkContainer:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}

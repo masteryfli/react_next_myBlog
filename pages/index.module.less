@@ -1,0 +1,256 @@
+.homePageContainer {
+  // position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  // background-image: url(https://yssimage.oss-cn-hangzhou.aliyuncs.com/22.jpg);
+  background-image: url(https://yssimage.oss-cn-hangzhou.aliyuncs.com/11.jpg);
+  background-position: center;
+  background-attachment: fixed; //当页面的其余部分滚动时，背景图像不会移动。
+  background-repeat: no-repeat;
+  background-size:100% 100%; //否则横向拉伸
+  .homeInfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    animation: homeInfoScale 1s ease-out 1 ;
+
+    .title {
+      font-size: 28rem;
+    }
+    .subTitle {
+      font-size: 14rem;
+      margin: 20rem 0rem;
+      letter-spacing: 10rem;
+    }
+    .enterButton {
+      border: none;
+      padding: 8rem 18rem;
+      font-size: 14rem;
+      border-radius: 2rem;
+      background-color: #1890ff;
+      margin-top: 20rem;
+      user-select: none;
+    }
+    .enterButton:hover{
+      background-color: #1E9FFF;
+    }
+  }
+  @keyframes homeInfoScale {
+    0% {
+      transform: scale(0.3);
+    }
+    100% {
+      transform: scale(1.0);
+    }
+  }
+
+  .downArrow {
+    position: absolute;
+    bottom: 30rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: downArrowAni 1s ease-out 1;
+
+    .downArrowIcon {
+      height: 40rem;
+      width: 40rem;
+      border-radius: 20rem;
+      padding: 5rem;
+      transition: all 0.5s;
+    }
+    .downArrowIcon:hover {
+      background-color: rgba(238, 231, 231, 0.3);
+      // background-color: #1890ff;
+      transform: scale(1.1);
+    }
+  }
+  @keyframes downArrowAni {
+    0% {
+      bottom: 0;
+    }
+    100% {
+      bottom: 30rem;
+    }
+  }
+
+  .navigatoDrawer {
+    position: fixed;
+    top: 25rem;
+    right: 25rem;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20rem;
+    width: 40rem;
+    height: 40rem;
+    transition: top 2s;
+    background: rgba(0,0,0,0.1);
+
+    .icon {
+      height: 22rem;
+    }
+  }
+
+  .navigatoDrawer:hover {
+    transform: scale(1.1);
+  }
+
+  .rightDrawer {
+    position: fixed;
+    right: -50vw;
+    top: 0;
+    bottom: 0;
+    border-bottom: 100vh solid white;
+    border-left: 25vh solid transparent;
+    height: 0;
+    width: 40vw;
+    z-index: 20;
+    transition: right 0.6s;
+
+    .drawerInfo {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: -30rem;
+
+      .drawerImgContainer {
+        box-sizing: border-box;
+        padding: 2rem;
+        width: 16vw;
+        height: 16vw;
+        border: 1rem solid #999;
+        border-radius: 8vw;
+        overflow: hidden;
+        margin-bottom: 60rem;
+        margin-top: -80rem;
+
+        .headerImage {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .drawerName {
+        font-size: 30rem;
+        color: #333;
+      }
+      .nameDes {
+        font-size: 24rem;
+        color: #666;
+      }
+      .desText {
+        margin-bottom: 10rem;
+      }
+      .linkIconBar a {
+        display: inline-block;
+        margin: 0rem 15rem;
+        text-align: justify;
+        color: rgba(0, 0, 0, 0.85);
+      }
+      .linkIconBar a:hover {
+        transform: scale(1.1);
+      }
+      .concatInfo {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20rem;
+        margin-left: 25rem;
+
+        span {
+          margin-left: 5rem;
+        }
+
+        .concatInfoTopLine {
+          margin-bottom: 4rem;
+          i {
+            margin-right: 20rem;
+          }
+        }
+        
+      }
+    }
+    .drawerButton {
+      position: absolute;
+      right: 25rem;
+      top: 25rem;
+      z-index: 30;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20rem;
+      width: 40rem;
+      height: 40rem;
+      .icon {
+        height: 22rem;
+      }
+    }
+    .drawerButton:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .rightDrawer.open {
+    right: 0rem;
+  }
+  .rightDrawer.close {
+    right: -50vw;
+  }
+
+}
+
+.homePageContainer:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+
+.modalMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 14;
+  background-color: rgba(0,0,0,.5);
+}
+.modalMask.modalMaskOpen {
+  display: block;
+}
+.modalMask.modalMaskClose {
+  display: none;
+}
+@media (max-width: 680px) {
+  .homePageContainer {
+    .rightDrawer {
+      width: 50vw;
+      border-left: 0vh solid white;
+      .drawerInfo {
+        margin-left: 0rem;
+        .drawerImgContainer {
+          width: 24vw;
+          height: 24vw;
+          border-radius: 12vw;
+        }
+        span {
+          font-size: 20rem;
+        }
+      }
+    }
+  }
+}
